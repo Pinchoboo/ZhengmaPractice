@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script>
+    <script src="./modal.js"></script>
+    <script src="./zhengma.js"></script>
+    <script src="./hsk.js"></script>
+    <script src="./app.js" defer></script>
+    <script src="./theme-switcher.js" defer></script>
+    <title>Zhengma Practice</title>
+</head>
+
+<body>
+    <main class="container">
+        <h1 class="title">Zhengma practice</h1>
+        <article>
+
+            <header>
+                <section class="header-grid">
+                    <h3 id="current-sentence"></h3>
+                    <h6 class="stats"> <span id="correct-stat">0</span> correct<br><span id="time-stat">0s</span></h6>
+                </section>
+            </header>
+
+            <h1 id="current-character">&#10240;</h1>
+
+            <section class="textboxrow">
+                <input type="text" id="info" value="" readonly class="info">
+                <input type="text" id="input" name="text" placeholder="Type zhengma code or character">
+            </section>
+
+            <div class="grid">
+                <div role="button" class="outline" data-target="settings-page" onClick="toggleModal(event)">Settings
+                </div>
+                <div role="button" class="outline" onClick="hint()">Hint (,)</div>
+                <div role="button" class="outline" onClick="skip()">Skip (.)</div>
+                <div role="button" class="outline" onClick="submit()" id="submit-button">Submit</div>
+            </div>
+        </article>
+
+
+        <!-- Settings Modal -->
+        <dialog id="settings-page">
+            <article>
+                <a href="#close" aria-label="Close" class="close" data-target="settings-page"
+                    onClick="toggleModal(event)">
+                </a>
+                <h3 style="margin-bottom: var(--spacing);">Settings</h3>
+                <fieldset>
+                    <label for="repeat">
+                        <input type="checkbox" id="repeat" name="repeat" role="repeat">
+                        Repeat character when hints were used or awnsered incorrectly
+                    </label>
+                    <label for="repeat">
+                        <input type="checkbox" id="auto" name="auto" role="auto">
+                        Automatically accept correct character
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Character Set</legend>
+                    <label for="simplified">
+                        <input type="radio" id="simplified" name="charset" value="simplified">
+                        Simplified (if it exists)
+                    </label>
+                    <label for="traditional">
+                        <input type="radio" id="traditional" name="charset" value="traditional">
+                        Traditional only
+                    </label>
+                    <label for="both">
+                        <input type="radio" id="both" name="charset" value="both" checked>
+                        Both
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Characters</legend>
+                    <label for="HSK">
+                        <input type="radio" id="HSK" name="chars" value="HSK" checked>
+                        HSK 1-6
+                    </label>
+                    <label for="unicode">
+                        <input type="radio" id="unicode" name="chars" value="unicode">
+                        Unicode
+                    </label>
+                    <label for="custom">
+                        <input type="radio" id="custom" name="chars" value="custom" disabled="true">
+                        Custom Text
+                    </label>
+                </fieldset>
+                <input type="text" id="customtext" name="text" placeholder="Paste text here">
+                <div id="theme-switcher-here"></div>
+            </article>
+        </dialog>
+    </main>
+</body>
+
+</html>

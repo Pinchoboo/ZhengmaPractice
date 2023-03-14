@@ -1,0 +1,52 @@
+body>footer, body>header, body>main, section {
+    --block-spacing-vertical: calc(var(--spacing) * 1);
+}
+header {
+    margin-bottom: 0;
+}
+.title  {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#current-character {
+    text-align: center;
+    font-size: 6rem;
+    font-weight: normal;
+    margin-bottom: calc(var(--typography-spacing-vertical)/3);
+}
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 2fr;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.stats {
+    text-align: right;
+    margin-bottom: 0;
+}
+
+#current-sentence {
+    margin-bottom: calc(var(--typography-spacing-vertical)/3);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.textboxrow {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: var(--grid-spacing-horizontal);
+    grid-row-gap: var(--grid-spacing-vertical);
+    margin-bottom: 0;
+}
+
+#settings-page > article {
+    margin-bottom: 0px;
+    padding-bottom: var(--spacing);
+    margin-top: var(--spacing);
+}
