@@ -85,7 +85,7 @@ function next() {
             do {
                 sentence_index += 1;
                 current = custom_text.value.charAt(sentence_index % custom_text.value.length);
-            } while ((/\s/).test(current) || current === ',' || current === '.' || current === '、' || current === '。');
+            } while ((/\s/).test(current) || current === ',' || current === '.' || current === '、' || current === '，' || current === '。');
             current_sent.innerText = custom_text.value.substring(sentence_index % custom_text.value.length)
         } else {
             if (unicode_radio.checked) {
