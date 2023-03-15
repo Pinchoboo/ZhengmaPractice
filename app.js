@@ -40,9 +40,11 @@ custom_radio.addEventListener('click', function (event) {
 
 hsk_radio.addEventListener('click', function (event) {
     current_sent.innerText = "";
+    repeat_button.disabled = false;
 });
 unicode_radio.addEventListener('click', function (event) {
     current_sent.innerText = "";
+    repeat_button.disabled = false;
 });
 
 custom_text.addEventListener('keyup', function (event) {
